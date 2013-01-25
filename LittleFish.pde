@@ -3,8 +3,8 @@ OscP5 oscP5;
 
 // our FaceOSC tracked face dat
 Face face = new Face();
-int xsize = 640;
-int ysize = 480;
+int xsize = 1000;
+int ysize = 800;
 int numFish = 50;
 Fish[] fishArray;
 
@@ -26,6 +26,8 @@ void draw() {
   background(255);
   stroke(0);
   for (int i = 0; i < numFish; i++) {
+    //fishArray[i].trackFaceMovement(face);
+    fishArray[i].moveSemiRandomly(fishArray);
     fishArray[i].drawFish();
   }
 
@@ -43,7 +45,8 @@ void draw() {
     rect(-20, face.eyebrowLeft * -5, 25, 5);
     rect(20, face.eyebrowRight * -5, 25, 5);
 
-    print(face.toString());
+    //println("X: " + face.posePosition.x + " Y: " + face.posePosition.y);
+    //print(face.toString());
   }
 }
 
